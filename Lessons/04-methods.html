@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Java Methods – JavaLearn</title>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="topnav">
+  <a href="../index.html" class="topnav-brand" style="text-decoration:none">
+    <span class="logo-icon">☕</span><span class="logo-text">JavaLearn</span>
+  </a>
+  <nav class="topnav-links">
+    <a href="../index.html">Home</a><a href="01-introduction.html">Tutorial</a>
+    <a href="exercises.html">Exercises</a><a href="reference.html">Reference</a>
+  </nav>
+  <div class="topnav-right"><a href="05-oop.html" class="btn-start">Next Lesson →</a></div>
+</header>
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Getting Started</div>
+      <a href="01-introduction.html">Introduction</a>
+      <a href="02-syntax.html">Syntax &amp; Basics</a>
+      <a href="03-control-flow.html">Control Flow</a>
+      <a href="04-methods.html" class="active">Methods</a>
+      <a href="05-oop.html">OOP</a>
+      <a href="06-arrays.html">Arrays &amp; Collections</a>
+      <a href="07-strings.html">Strings</a>
+      <a href="08-exceptions.html">Exceptions</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Practice</div>
+      <a href="exercises.html">Exercises</a><a href="reference.html">Reference</a>
+    </div>
+  </aside>
+  <main class="lesson-main">
+    <h1>Methods</h1>
+    <p class="lesson-intro">Methods are reusable blocks of code that perform a specific task. They keep your code organized, readable, and DRY (Don't Repeat Yourself).</p>
+
+    <h2>Defining a Method</h2>
+    <div class="code-block">
+      <div class="code-block-header"><span class="code-block-label">Syntax</span><button class="code-copy-btn">Copy</button></div>
+      <pre><span class="kw">returnType</span> <span class="fn">methodName</span>(<span class="kw">paramType</span> paramName, ...) {
+    <span class="cm">// method body</span>
+    <span class="kw">return</span> value; <span class="cm">// only if returnType != void</span>
+}</pre>
+    </div>
+
+    <h2>void Methods (no return value)</h2>
+    <div class="code-block">
+      <div class="code-block-header"><span class="code-block-label">Greet.java</span><button class="code-copy-btn">Copy</button></div>
+      <pre><span class="kw">public class</span> <span class="cls">Greet</span> {
+    <span class="kw">static void</span> <span class="fn">sayHello</span>(String name) {
+        System.out.println(<span class="str">"Hello, "</span> + name + <span class="str">"!"</span>);
+    }
+
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+        <span class="fn">sayHello</span>(<span class="str">"Bob"</span>);
+        <span class="fn">sayHello</span>(<span class="str">"Alice"</span>);
+    }
+}</pre>
+      <div class="output-line">▶ Output: Hello, Bob! / Hello, Alice!</div>
+    </div>
+
+    <h2>Methods with Return Values</h2>
+    <div class="code-block">
+      <div class="code-block-header"><span class="code-block-label">Calculator.java</span><button class="code-copy-btn">Copy</button></div>
+      <pre><span class="kw">public class</span> <span class="cls">Calculator</span> {
+    <span class="kw">static int</span> <span class="fn">add</span>(<span class="kw">int</span> a, <span class="kw">int</span> b) {
+        <span class="kw">return</span> a + b;
+    }
+
+    <span class="kw">static double</span> <span class="fn">average</span>(<span class="kw">double</span> x, <span class="kw">double</span> y) {
+        <span class="kw">return</span> (x + y) / <span class="num">2</span>;
+    }
+
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+        <span class="kw">int</span> sum = <span class="fn">add</span>(<span class="num">10</span>, <span class="num">5</span>);
+        System.out.println(<span class="str">"Sum: "</span> + sum);
+        System.out.println(<span class="str">"Avg: "</span> + <span class="fn">average</span>(<span class="num">10.0</span>, <span class="num">6.0</span>));
+    }
+}</pre>
+      <div class="output-line">▶ Output: Sum: 15 / Avg: 8.0</div>
+    </div>
+
+    <h2>Method Overloading</h2>
+    <p>Java allows multiple methods with the <strong>same name</strong> but different parameter types or counts. The compiler picks the right one:</p>
+    <div class="code-block">
+      <div class="code-block-header"><span class="code-block-label">Overload.java</span><button class="code-copy-btn">Copy</button></div>
+      <pre><span class="kw">static int</span>    <span class="fn">multiply</span>(<span class="kw">int</span> a,    <span class="kw">int</span> b)    { <span class="kw">return</span> a * b; }
+<span class="kw">static double</span> <span class="fn">multiply</span>(<span class="kw">double</span> a, <span class="kw">double</span> b) { <span class="kw">return</span> a * b; }
+<span class="kw">static int</span>    <span class="fn">multiply</span>(<span class="kw">int</span> a,    <span class="kw">int</span> b, <span class="kw">int</span> c) { <span class="kw">return</span> a * b * c; }
+
+System.out.println(<span class="fn">multiply</span>(<span class="num">3</span>, <span class="num">4</span>));        <span class="cm">// 12</span>
+System.out.println(<span class="fn">multiply</span>(<span class="num">3.0</span>, <span class="num">4.5</span>));   <span class="cm">// 13.5</span>
+System.out.println(<span class="fn">multiply</span>(<span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>));    <span class="cm">// 24</span></pre>
+    </div>
+
+    <h2>Recursion</h2>
+    <p>A method can call itself. A classic example is calculating a factorial:</p>
+    <div class="code-block">
+      <div class="code-block-header"><span class="code-block-label">Factorial.java</span><button class="code-copy-btn">Copy</button></div>
+      <pre><span class="kw">static int</span> <span class="fn">factorial</span>(<span class="kw">int</span> n) {
+    <span class="kw">if</span> (n == <span class="num">0</span>) <span class="kw">return</span> <span class="num">1</span>;        <span class="cm">// base case</span>
+    <span class="kw">return</span> n * <span class="fn">factorial</span>(n - <span class="num">1</span>);  <span class="cm">// recursive call</span>
+}
+
+System.out.println(<span class="fn">factorial</span>(<span class="num">5</span>)); <span class="cm">// 120</span></pre>
+      <div class="output-line">▶ Output: 120</div>
+    </div>
+    <div class="tip-box"><strong>✅ Tip:</strong> Always have a <strong>base case</strong> in recursion to prevent infinite loops.</div>
+
+    <div class="lesson-nav">
+      <a href="03-control-flow.html" class="lesson-nav-btn">← Control Flow</a>
+      <a href="05-oop.html" class="lesson-nav-btn">OOP →</a>
+    </div>
+  </main>
+</div>
+<footer class="footer"><div class="footer-inner"><div class="footer-brand"><span class="logo-icon">☕</span><span class="logo-text">JavaLearn</span></div><p class="footer-copy">© 2026 JavaLearn.</p></div></footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

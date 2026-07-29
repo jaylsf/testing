@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Java Control Flow – JavaLearn</title>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="topnav">
+  <a href="../index.html" class="topnav-brand" style="text-decoration:none">
+    <span class="logo-icon">☕</span><span class="logo-text">JavaLearn</span>
+  </a>
+  <nav class="topnav-links">
+    <a href="../index.html">Home</a>
+    <a href="01-introduction.html">Tutorial</a>
+    <a href="exercises.html">Exercises</a>
+    <a href="reference.html">Reference</a>
+  </nav>
+  <div class="topnav-right"><a href="04-methods.html" class="btn-start">Next Lesson →</a></div>
+</header>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Getting Started</div>
+      <a href="01-introduction.html">Introduction</a>
+      <a href="02-syntax.html">Syntax &amp; Basics</a>
+      <a href="03-control-flow.html" class="active">Control Flow</a>
+      <a href="04-methods.html">Methods</a>
+      <a href="05-oop.html">OOP</a>
+      <a href="06-arrays.html">Arrays &amp; Collections</a>
+      <a href="07-strings.html">Strings</a>
+      <a href="08-exceptions.html">Exceptions</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Practice</div>
+      <a href="exercises.html">Exercises</a>
+      <a href="reference.html">Reference</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <h1>Control Flow</h1>
+    <p class="lesson-intro">Control flow statements let your program make decisions and repeat actions. Java provides <code>if/else</code>, <code>switch</code>, and three kinds of loops.</p>
+
+    <h2>if / else if / else</h2>
+    <div class="code-block">
+      <div class="code-block-header"><span class="code-block-label">IfElse.java</span><button class="code-copy-btn">Copy</button></div>
+      <pre><span class="kw">int</span> score = <span class="num">75</span>;
+
+<span class="kw">if</span> (score >= <span class="num">90</span>) {
+    System.out.println(<span class="str">"Grade: A"</span>);
+} <span class="kw">else if</span> (score >= <span class="num">70</span>) {
+    System.out.println(<span class="str">"Grade: B"</span>);
+} <span class="kw">else if</span> (score >= <span class="num">50</span>) {
+    System.out.println(<span class="str">"Grade: C"</span>);
+} <span class="kw">else</span> {
+    System.out.println(<span class="str">"Grade: F"</span>);
+}</pre>
+      <div class="output-line">▶ Output: Grade: B</div>
+    </div>
+
+    <h3>Ternary Operator (shorthand if)</h3>
+    <div class="code-block">
+      <div class="code-block-header"><span class="code-block-label">Ternary.java</span><button class="code-copy-btn">Copy</button></div>
+      <pre><span class="kw">int</span> age = <span class="num">20</span>;
+String status = (age >= <span class="num">18</span>) ? <span class="str">"Adult"</span> : <span class="str">"Minor"</span>;
+System.out.println(status);</pre>
+      <div class="output-line">▶ Output: Adult</div>
+    </div>
+
+    <h2>switch Statement</h2>
+    <p>Use <code>switch</code> when comparing a variable against several specific values:</p>
+    <div class="code-block">
+      <div class="code-block-header"><span class="code-block-label">Switch.java</span><button class="code-copy-btn">Copy</button></div>
+      <pre><span class="kw">int</span> day = <span class="num">3</span>;
+<span class="kw">switch</span> (day) {
+    <span class="kw">case</span> <span class="num">1</span>: System.out.println(<span class="str">"Monday"</span>);    <span class="kw">break</span>;
+    <span class="kw">case</span> <span class="num">2</span>: System.out.println(<span class="str">"Tuesday"</span>);   <span class="kw">break</span>;
+    <span class="kw">case</span> <span class="num">3</span>: System.out.println(<span class="str">"Wednesday"</span>); <span class="kw">break</span>;
+    <span class="kw">case</span> <span class="num">4</span>: System.out.println(<span class="str">"Thursday"</span>);  <span class="kw">break</span>;
+    <span class="kw">case</span> <span class="num">5</span>: System.out.println(<span class="str">"Friday"</span>);    <span class="kw">break</span>;
+    <span class="kw">default</span>: System.out.println(<span class="str">"Weekend"</span>);
+}</pre>
+      <div class="output-line">▶ Output: Wednesday</div>
+    </div>
+    <div class="warn-box"><strong>⚠️ Don't forget <code>break</code>!</strong> Without it, Java "falls through" to the next case.</div>
+
+    <h2>for Loop</h2>
+    <p>Use when you know exactly how many times to repeat:</p>
+    <div class="code-block">
+      <div class="code-block-header"><span class="code-block-label">ForLoop.java</span><button class="code-copy-btn">Copy</button></div>
+      <pre><span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">1</span>; i &lt;= <span class="num">5</span>; i++) {
+    System.out.println(<span class="str">"Lap "</span> + i);
+}</pre>
+      <div class="output-line">▶ Output: Lap 1 … Lap 5</div>
+    </div>
+
+    <h2>while Loop</h2>
+    <p>Use when you don't know in advance how many iterations you need:</p>
+    <div class="code-block">
+      <div class="code-block-header"><span class="code-block-label">WhileLoop.java</span><button class="code-copy-btn">Copy</button></div>
+      <pre><span class="kw">int</span> n = <span class="num">1</span>;
+<span class="kw">while</span> (n &lt;= <span class="num">4</span>) {
+    System.out.println(<span class="str">"n = "</span> + n);
+    n++;
+}</pre>
+      <div class="output-line">▶ Output: n = 1 / n = 2 / n = 3 / n = 4</div>
+    </div>
+
+    <h2>do-while Loop</h2>
+    <p>Runs the body <em>at least once</em>, then checks the condition:</p>
+    <div class="code-block">
+      <div class="code-block-header"><span class="code-block-label">DoWhile.java</span><button class="code-copy-btn">Copy</button></div>
+      <pre><span class="kw">int</span> count = <span class="num">0</span>;
+<span class="kw">do</span> {
+    System.out.println(<span class="str">"Count: "</span> + count);
+    count++;
+} <span class="kw">while</span> (count &lt; <span class="num">3</span>);</pre>
+      <div class="output-line">▶ Output: Count: 0 / Count: 1 / Count: 2</div>
+    </div>
+
+    <h2>break and continue</h2>
+    <div class="code-block">
+      <div class="code-block-header"><span class="code-block-label">BreakContinue.java</span><button class="code-copy-btn">Copy</button></div>
+      <pre><span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">0</span>; i &lt; <span class="num">10</span>; i++) {
+    <span class="kw">if</span> (i == <span class="num">3</span>) <span class="kw">continue</span>;  <span class="cm">// skip 3</span>
+    <span class="kw">if</span> (i == <span class="num">6</span>) <span class="kw">break</span>;     <span class="cm">// stop at 6</span>
+    System.out.print(i + <span class="str">" "</span>);
+}</pre>
+      <div class="output-line">▶ Output: 0 1 2 4 5</div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="02-syntax.html" class="lesson-nav-btn">← Syntax &amp; Basics</a>
+      <a href="04-methods.html" class="lesson-nav-btn">Methods →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand"><span class="logo-icon">☕</span><span class="logo-text">JavaLearn</span></div>
+    <p class="footer-copy">© 2026 JavaLearn. Built for learners everywhere.</p>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

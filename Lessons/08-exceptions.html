@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Java Exceptions – JavaLearn</title>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="topnav">
+  <a href="../index.html" class="topnav-brand" style="text-decoration:none"><span class="logo-icon">☕</span><span class="logo-text">JavaLearn</span></a>
+  <nav class="topnav-links"><a href="../index.html">Home</a><a href="01-introduction.html">Tutorial</a><a href="exercises.html">Exercises</a><a href="reference.html">Reference</a></nav>
+  <div class="topnav-right"><a href="exercises.html" class="btn-start">Try Exercises →</a></div>
+</header>
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Getting Started</div>
+      <a href="01-introduction.html">Introduction</a><a href="02-syntax.html">Syntax &amp; Basics</a>
+      <a href="03-control-flow.html">Control Flow</a><a href="04-methods.html">Methods</a>
+      <a href="05-oop.html">OOP</a><a href="06-arrays.html">Arrays &amp; Collections</a>
+      <a href="07-strings.html">Strings</a><a href="08-exceptions.html" class="active">Exceptions</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Practice</div>
+      <a href="exercises.html">Exercises</a><a href="reference.html">Reference</a></div>
+  </aside>
+  <main class="lesson-main">
+    <h1>Exceptions</h1>
+    <p class="lesson-intro">Exceptions are runtime errors that can be caught and handled gracefully, preventing your program from crashing unexpectedly.</p>
+
+    <h2>try / catch / finally</h2>
+    <div class="code-block">
+      <div class="code-block-header"><span class="code-block-label">TryCatch.java</span><button class="code-copy-btn">Copy</button></div>
+      <pre><span class="kw">public class</span> <span class="cls">TryCatch</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+        <span class="kw">try</span> {
+            <span class="kw">int</span> result = <span class="num">10</span> / <span class="num">0</span>;    <span class="cm">// ArithmeticException!</span>
+            System.out.println(result);
+        } <span class="kw">catch</span> (ArithmeticException e) {
+            System.out.println(<span class="str">"Error: "</span> + e.getMessage());
+        } <span class="kw">finally</span> {
+            System.out.println(<span class="str">"This always runs."</span>);
+        }
+    }
+}</pre>
+      <div class="output-line">▶ Error: / by zero / This always runs.</div>
+    </div>
+
+    <h2>Multiple catch Blocks</h2>
+    <div class="code-block">
+      <div class="code-block-header"><span class="code-block-label">MultiCatch.java</span><button class="code-copy-btn">Copy</button></div>
+      <pre><span class="kw">try</span> {
+    String s = <span class="kw">null</span>;
+    System.out.println(s.<span class="fn">length</span>()); <span class="cm">// NullPointerException</span>
+} <span class="kw">catch</span> (NullPointerException e) {
+    System.out.println(<span class="str">"Null reference!"</span>);
+} <span class="kw">catch</span> (Exception e) {
+    System.out.println(<span class="str">"Some other error: "</span> + e.getMessage());
+}</pre>
+      <div class="output-line">▶ Null reference!</div>
+    </div>
+
+    <h2>Common Exception Types</h2>
+    <table class="lesson-table">
+      <thead><tr><th>Exception</th><th>When it occurs</th></tr></thead>
+      <tbody>
+        <tr><td><code>ArithmeticException</code></td><td>Division by zero</td></tr>
+        <tr><td><code>NullPointerException</code></td><td>Using a null reference</td></tr>
+        <tr><td><code>ArrayIndexOutOfBoundsException</code></td><td>Accessing invalid array index</td></tr>
+        <tr><td><code>NumberFormatException</code></td><td><code>Integer.parseInt("abc")</code></td></tr>
+        <tr><td><code>ClassCastException</code></td><td>Invalid type cast</td></tr>
+        <tr><td><code>StackOverflowError</code></td><td>Infinite recursion</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Throwing Exceptions (throw / throws)</h2>
+    <div class="code-block">
+      <div class="code-block-header"><span class="code-block-label">Throw.java</span><button class="code-copy-btn">Copy</button></div>
+      <pre><span class="kw">static void</span> <span class="fn">setAge</span>(<span class="kw">int</span> age) {
+    <span class="kw">if</span> (age &lt; <span class="num">0</span>) {
+        <span class="kw">throw new</span> IllegalArgumentException(<span class="str">"Age cannot be negative!"</span>);
+    }
+    System.out.println(<span class="str">"Age set to: "</span> + age);
+}
+
+<span class="kw">try</span> {
+    <span class="fn">setAge</span>(-<span class="num">5</span>);
+} <span class="kw">catch</span> (IllegalArgumentException e) {
+    System.out.println(<span class="str">"Caught: "</span> + e.getMessage());
+}</pre>
+      <div class="output-line">▶ Caught: Age cannot be negative!</div>
+    </div>
+
+    <h2>Custom Exceptions</h2>
+    <div class="code-block">
+      <div class="code-block-header"><span class="code-block-label">CustomException.java</span><button class="code-copy-btn">Copy</button></div>
+      <pre><span class="kw">class</span> <span class="cls">InsufficientFundsException</span> <span class="kw">extends</span> Exception {
+    <span class="cls">InsufficientFundsException</span>(String msg) {
+        <span class="kw">super</span>(msg);
+    }
+}
+
+<span class="kw">class</span> <span class="cls">BankAccount</span> {
+    <span class="kw">double</span> balance = <span class="num">100</span>;
+
+    <span class="kw">void</span> <span class="fn">withdraw</span>(<span class="kw">double</span> amount) <span class="kw">throws</span> InsufficientFundsException {
+        <span class="kw">if</span> (amount > balance) {
+            <span class="kw">throw new</span> InsufficientFundsException(
+                <span class="str">"Need $"</span> + amount + <span class="str">" but only have $"</span> + balance);
+        }
+        balance -= amount;
+    }
+}</pre>
+    </div>
+
+    <div class="tip-box"><strong>✅ Tip:</strong> Use <code>finally</code> to close resources (files, database connections) regardless of whether an exception was thrown.</div>
+
+    <div class="lesson-nav">
+      <a href="07-strings.html" class="lesson-nav-btn">← Strings</a>
+      <a href="exercises.html" class="lesson-nav-btn">Try Exercises →</a>
+    </div>
+  </main>
+</div>
+<footer class="footer"><div class="footer-inner"><div class="footer-brand"><span class="logo-icon">☕</span><span class="logo-text">JavaLearn</span></div><p class="footer-copy">© 2026 JavaLearn.</p></div></footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Java Exercises – JavaLearn</title>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="topnav">
+  <a href="../index.html" class="topnav-brand" style="text-decoration:none"><span class="logo-icon">☕</span><span class="logo-text">JavaLearn</span></a>
+  <nav class="topnav-links"><a href="../index.html">Home</a><a href="01-introduction.html">Tutorial</a><a href="exercises.html" class="active">Exercises</a><a href="reference.html">Reference</a></nav>
+  <div class="topnav-right"><a href="reference.html" class="btn-start">Reference →</a></div>
+</header>
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-heading">By Topic</div>
+      <a href="#basics">Basics</a>
+      <a href="#control">Control Flow</a>
+      <a href="#methods">Methods</a>
+      <a href="#oop">OOP</a>
+      <a href="#strings">Strings</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Lessons</div>
+      <a href="01-introduction.html">Introduction</a>
+      <a href="02-syntax.html">Syntax</a>
+      <a href="03-control-flow.html">Control Flow</a>
+      <a href="04-methods.html">Methods</a>
+      <a href="05-oop.html">OOP</a>
+    </div>
+  </aside>
+  <main class="lesson-main">
+    <h1>Java Exercises</h1>
+    <p class="lesson-intro">Test your knowledge with these fill-in exercises. Type your answer (just the expression or keyword) and click Check.</p>
+
+    <!-- BASICS -->
+    <h2 id="basics">Basics</h2>
+
+    <div class="exercise-card" data-answer="int">
+      <div class="exercise-num">Exercise 1 · Variables</div>
+      <div class="exercise-q">What data type is used to store whole numbers like <code>42</code>?</div>
+      <input class="exercise-input" placeholder="Type your answer here..." style="min-height:44px"/>
+      <div class="exercise-actions">
+        <button class="btn-check">Check</button>
+        <button class="btn-hint">Hint</button>
+      </div>
+      <div class="hint-text">It's a 4-byte primitive that starts with "i".</div>
+      <div class="exercise-feedback"></div>
+    </div>
+
+    <div class="exercise-card" data-answer="final">
+      <div class="exercise-num">Exercise 2 · Constants</div>
+      <div class="exercise-q">Which keyword makes a variable a constant (prevents reassignment)?</div>
+      <input class="exercise-input" style="min-height:44px"/>
+      <div class="exercise-actions"><button class="btn-check">Check</button><button class="btn-hint">Hint</button></div>
+      <div class="hint-text">Think of the word "final" — it can't be changed.</div>
+      <div class="exercise-feedback"></div>
+    </div>
+
+    <!-- CONTROL FLOW -->
+    <h2 id="control">Control Flow</h2>
+
+    <div class="exercise-card" data-answer="break">
+      <div class="exercise-num">Exercise 3 · Switch</div>
+      <div class="exercise-q">What keyword prevents "fall-through" in a <code>switch</code> statement?</div>
+      <input class="exercise-input" style="min-height:44px"/>
+      <div class="exercise-actions"><button class="btn-check">Check</button><button class="btn-hint">Hint</button></div>
+      <div class="hint-text">It also exits loops early.</div>
+      <div class="exercise-feedback"></div>
+    </div>
+
+    <div class="exercise-card" data-answer="do-while">
+      <div class="exercise-num">Exercise 4 · Loops</div>
+      <div class="exercise-q">Which loop always executes its body <em>at least once</em>?</div>
+      <input class="exercise-input" style="min-height:44px"/>
+      <div class="exercise-actions"><button class="btn-check">Check</button><button class="btn-hint">Hint</button></div>
+      <div class="hint-text">It checks the condition <em>after</em> executing the body.</div>
+      <div class="exercise-feedback"></div>
+    </div>
+
+    <!-- METHODS -->
+    <h2 id="methods">Methods</h2>
+
+    <div class="exercise-card" data-answer="void">
+      <div class="exercise-num">Exercise 5 · Methods</div>
+      <div class="exercise-q">What return type does a method have when it returns nothing?</div>
+      <input class="exercise-input" style="min-height:44px"/>
+      <div class="exercise-actions"><button class="btn-check">Check</button><button class="btn-hint">Hint</button></div>
+      <div class="hint-text">It means "empty" in Latin.</div>
+      <div class="exercise-feedback"></div>
+    </div>
+
+    <div class="exercise-card" data-answer="return">
+      <div class="exercise-num">Exercise 6 · Methods</div>
+      <div class="exercise-q">What keyword sends a value back from a method to the caller?</div>
+      <input class="exercise-input" style="min-height:44px"/>
+      <div class="exercise-actions"><button class="btn-check">Check</button><button class="btn-hint">Hint</button></div>
+      <div class="hint-text">Think "give it back."</div>
+      <div class="exercise-feedback"></div>
+    </div>
+
+    <!-- OOP -->
+    <h2 id="oop">OOP</h2>
+
+    <div class="exercise-card" data-answer="extends">
+      <div class="exercise-num">Exercise 7 · Inheritance</div>
+      <div class="exercise-q">What keyword does a child class use to inherit from a parent class?</div>
+      <input class="exercise-input" style="min-height:44px"/>
+      <div class="exercise-actions"><button class="btn-check">Check</button><button class="btn-hint">Hint</button></div>
+      <div class="hint-text"><code>class Dog ___ Animal</code></div>
+      <div class="exercise-feedback"></div>
+    </div>
+
+    <div class="exercise-card" data-answer="new">
+      <div class="exercise-num">Exercise 8 · Objects</div>
+      <div class="exercise-q">What keyword is used to create an object (instantiate a class)?</div>
+      <input class="exercise-input" style="min-height:44px"/>
+      <div class="exercise-actions"><button class="btn-check">Check</button><button class="btn-hint">Hint</button></div>
+      <div class="hint-text"><code>Dog d = ___ Dog();</code></div>
+      <div class="exercise-feedback"></div>
+    </div>
+
+    <!-- STRINGS -->
+    <h2 id="strings">Strings</h2>
+
+    <div class="exercise-card" data-answer="equals">
+      <div class="exercise-num">Exercise 9 · Strings</div>
+      <div class="exercise-q">What method (not <code>==</code>) should you use to compare two String values?</div>
+      <input class="exercise-input" style="min-height:44px"/>
+      <div class="exercise-actions"><button class="btn-check">Check</button><button class="btn-hint">Hint</button></div>
+      <div class="hint-text"><code>s1._____(s2)</code></div>
+      <div class="exercise-feedback"></div>
+    </div>
+
+    <div class="exercise-card" data-answer="length">
+      <div class="exercise-num">Exercise 10 · Strings</div>
+      <div class="exercise-q">What method returns the number of characters in a String?</div>
+      <input class="exercise-input" style="min-height:44px"/>
+      <div class="exercise-actions"><button class="btn-check">Check</button><button class="btn-hint">Hint</button></div>
+      <div class="hint-text"><code>"Hello"._____()</code> returns 5</div>
+      <div class="exercise-feedback"></div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="08-exceptions.html" class="lesson-nav-btn">← Exceptions</a>
+      <a href="reference.html" class="lesson-nav-btn">Reference →</a>
+    </div>
+  </main>
+</div>
+<footer class="footer"><div class="footer-inner"><div class="footer-brand"><span class="logo-icon">☕</span><span class="logo-text">JavaLearn</span></div><p class="footer-copy">© 2026 JavaLearn.</p></div></footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

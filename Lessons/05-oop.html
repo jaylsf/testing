@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Java OOP – JavaLearn</title>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="topnav">
+  <a href="../index.html" class="topnav-brand" style="text-decoration:none">
+    <span class="logo-icon">☕</span><span class="logo-text">JavaLearn</span>
+  </a>
+  <nav class="topnav-links">
+    <a href="../index.html">Home</a><a href="01-introduction.html">Tutorial</a>
+    <a href="exercises.html">Exercises</a><a href="reference.html">Reference</a>
+  </nav>
+  <div class="topnav-right"><a href="06-arrays.html" class="btn-start">Next Lesson →</a></div>
+</header>
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Getting Started</div>
+      <a href="01-introduction.html">Introduction</a>
+      <a href="02-syntax.html">Syntax &amp; Basics</a>
+      <a href="03-control-flow.html">Control Flow</a>
+      <a href="04-methods.html">Methods</a>
+      <a href="05-oop.html" class="active">OOP</a>
+      <a href="06-arrays.html">Arrays &amp; Collections</a>
+      <a href="07-strings.html">Strings</a>
+      <a href="08-exceptions.html">Exceptions</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Practice</div>
+      <a href="exercises.html">Exercises</a><a href="reference.html">Reference</a>
+    </div>
+  </aside>
+  <main class="lesson-main">
+    <h1>Object-Oriented Programming</h1>
+    <p class="lesson-intro">Java is built around OOP. Classes are blueprints; objects are instances. The four pillars are <strong>Encapsulation</strong>, <strong>Inheritance</strong>, <strong>Polymorphism</strong>, and <strong>Abstraction</strong>.</p>
+
+    <h2>Classes and Objects</h2>
+    <div class="code-block">
+      <div class="code-block-header"><span class="code-block-label">Dog.java</span><button class="code-copy-btn">Copy</button></div>
+      <pre><span class="kw">public class</span> <span class="cls">Dog</span> {
+    <span class="cm">// Fields (attributes)</span>
+    String name;
+    String breed;
+    <span class="kw">int</span> age;
+
+    <span class="cm">// Constructor</span>
+    <span class="cls">Dog</span>(String name, String breed, <span class="kw">int</span> age) {
+        <span class="kw">this</span>.name  = name;
+        <span class="kw">this</span>.breed = breed;
+        <span class="kw">this</span>.age   = age;
+    }
+
+    <span class="cm">// Method</span>
+    <span class="kw">void</span> <span class="fn">bark</span>() {
+        System.out.println(<span class="kw">this</span>.name + <span class="str">" says: Woof!"</span>);
+    }
+}
+
+<span class="cm">// Creating objects</span>
+<span class="cls">Dog</span> d1 = <span class="kw">new</span> <span class="cls">Dog</span>(<span class="str">"Rex"</span>, <span class="str">"Lab"</span>, <span class="num">3</span>);
+<span class="cls">Dog</span> d2 = <span class="kw">new</span> <span class="cls">Dog</span>(<span class="str">"Bella"</span>, <span class="str">"Poodle"</span>, <span class="num">2</span>);
+d1.<span class="fn">bark</span>();
+d2.<span class="fn">bark</span>();</pre>
+      <div class="output-line">▶ Rex says: Woof! / Bella says: Woof!</div>
+    </div>
+
+    <h2>Encapsulation (getters &amp; setters)</h2>
+    <p>Hide internal data with <code>private</code> fields and expose them via public getter/setter methods:</p>
+    <div class="code-block">
+      <div class="code-block-header"><span class="code-block-label">Person.java</span><button class="code-copy-btn">Copy</button></div>
+      <pre><span class="kw">public class</span> <span class="cls">Person</span> {
+    <span class="kw">private</span> String name;
+    <span class="kw">private int</span> age;
+
+    <span class="kw">public</span> String <span class="fn">getName</span>() { <span class="kw">return</span> name; }
+    <span class="kw">public void</span>   <span class="fn">setName</span>(String n) { <span class="kw">this</span>.name = n; }
+
+    <span class="kw">public int</span>  <span class="fn">getAge</span>() { <span class="kw">return</span> age; }
+    <span class="kw">public void</span> <span class="fn">setAge</span>(<span class="kw">int</span> a) {
+        <span class="kw">if</span> (a > <span class="num">0</span>) <span class="kw">this</span>.age = a; <span class="cm">// validation</span>
+    }
+}
+
+<span class="cls">Person</span> p = <span class="kw">new</span> <span class="cls">Person</span>();
+p.<span class="fn">setName</span>(<span class="str">"Alice"</span>);
+p.<span class="fn">setAge</span>(<span class="num">30</span>);
+System.out.println(p.<span class="fn">getName</span>() + <span class="str">" is "</span> + p.<span class="fn">getAge</span>());</pre>
+      <div class="output-line">▶ Alice is 30</div>
+    </div>
+
+    <h2>Inheritance</h2>
+    <p>A child class (<code>extends</code>) inherits fields and methods from a parent class:</p>
+    <div class="code-block">
+      <div class="code-block-header"><span class="code-block-label">Inheritance.java</span><button class="code-copy-btn">Copy</button></div>
+      <pre><span class="kw">class</span> <span class="cls">Animal</span> {
+    String name;
+    <span class="kw">void</span> <span class="fn">eat</span>() { System.out.println(name + <span class="str">" eats."</span>); }
+}
+
+<span class="kw">class</span> <span class="cls">Cat</span> <span class="kw">extends</span> <span class="cls">Animal</span> {
+    <span class="kw">void</span> <span class="fn">meow</span>() { System.out.println(name + <span class="str">": Meow!"</span>); }
+}
+
+<span class="cls">Cat</span> cat = <span class="kw">new</span> <span class="cls">Cat</span>();
+cat.name = <span class="str">"Whiskers"</span>;
+cat.<span class="fn">eat</span>();   <span class="cm">// inherited</span>
+cat.<span class="fn">meow</span>();  <span class="cm">// own method</span></pre>
+      <div class="output-line">▶ Whiskers eats. / Whiskers: Meow!</div>
+    </div>
+
+    <h2>Polymorphism (Method Overriding)</h2>
+    <p>A subclass can override a parent method with <code>@Override</code>:</p>
+    <div class="code-block">
+      <div class="code-block-header"><span class="code-block-label">Polymorphism.java</span><button class="code-copy-btn">Copy</button></div>
+      <pre><span class="kw">class</span> <span class="cls">Shape</span> {
+    <span class="kw">double</span> <span class="fn">area</span>() { <span class="kw">return</span> <span class="num">0</span>; }
+}
+
+<span class="kw">class</span> <span class="cls">Circle</span> <span class="kw">extends</span> <span class="cls">Shape</span> {
+    <span class="kw">double</span> radius;
+    <span class="cls">Circle</span>(<span class="kw">double</span> r) { radius = r; }
+    <span class="cm">@Override</span>
+    <span class="kw">double</span> <span class="fn">area</span>() { <span class="kw">return</span> Math.PI * radius * radius; }
+}
+
+<span class="kw">class</span> <span class="cls">Rectangle</span> <span class="kw">extends</span> <span class="cls">Shape</span> {
+    <span class="kw">double</span> w, h;
+    <span class="cls">Rectangle</span>(<span class="kw">double</span> w, <span class="kw">double</span> h) { <span class="kw">this</span>.w=w; <span class="kw">this</span>.h=h; }
+    <span class="cm">@Override</span>
+    <span class="kw">double</span> <span class="fn">area</span>() { <span class="kw">return</span> w * h; }
+}
+
+<span class="cls">Shape</span>[] shapes = { <span class="kw">new</span> <span class="cls">Circle</span>(<span class="num">5</span>), <span class="kw">new</span> <span class="cls">Rectangle</span>(<span class="num">4</span>, <span class="num">6</span>) };
+<span class="kw">for</span> (<span class="cls">Shape</span> s : shapes) {
+    System.out.printf(<span class="str">"Area: %.2f%n"</span>, s.<span class="fn">area</span>());
+}</pre>
+      <div class="output-line">▶ Area: 78.54 / Area: 24.00</div>
+    </div>
+
+    <h2>Interfaces</h2>
+    <div class="code-block">
+      <div class="code-block-header"><span class="code-block-label">Interface.java</span><button class="code-copy-btn">Copy</button></div>
+      <pre><span class="kw">interface</span> <span class="cls">Flyable</span> {
+    <span class="kw">void</span> <span class="fn">fly</span>(); <span class="cm">// abstract – no body</span>
+}
+
+<span class="kw">class</span> <span class="cls">Bird</span> <span class="kw">implements</span> <span class="cls">Flyable</span> {
+    <span class="kw">public void</span> <span class="fn">fly</span>() {
+        System.out.println(<span class="str">"Bird flaps wings!"</span>);
+    }
+}
+
+<span class="cls">Bird</span> b = <span class="kw">new</span> <span class="cls">Bird</span>();
+b.<span class="fn">fly</span>();</pre>
+      <div class="output-line">▶ Bird flaps wings!</div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="04-methods.html" class="lesson-nav-btn">← Methods</a>
+      <a href="06-arrays.html" class="lesson-nav-btn">Arrays →</a>
+    </div>
+  </main>
+</div>
+<footer class="footer"><div class="footer-inner"><div class="footer-brand"><span class="logo-icon">☕</span><span class="logo-text">JavaLearn</span></div><p class="footer-copy">© 2026 JavaLearn.</p></div></footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

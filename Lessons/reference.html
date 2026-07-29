@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Java Reference – JavaLearn</title>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="topnav">
+  <a href="../index.html" class="topnav-brand" style="text-decoration:none"><span class="logo-icon">☕</span><span class="logo-text">JavaLearn</span></a>
+  <nav class="topnav-links"><a href="../index.html">Home</a><a href="01-introduction.html">Tutorial</a><a href="exercises.html">Exercises</a><a href="reference.html" class="active">Reference</a></nav>
+  <div class="topnav-right"><a href="01-introduction.html" class="btn-start">Start Lesson →</a></div>
+</header>
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Sections</div>
+      <a href="#keywords">Keywords</a>
+      <a href="#string-methods">String Methods</a>
+      <a href="#math">Math Methods</a>
+      <a href="#modifiers">Access Modifiers</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Lessons</div>
+      <a href="01-introduction.html">Introduction</a>
+      <a href="02-syntax.html">Syntax</a>
+      <a href="03-control-flow.html">Control Flow</a>
+      <a href="04-methods.html">Methods</a>
+      <a href="05-oop.html">OOP</a>
+      <a href="06-arrays.html">Arrays</a>
+      <a href="07-strings.html">Strings</a>
+      <a href="08-exceptions.html">Exceptions</a>
+    </div>
+  </aside>
+  <main class="lesson-main">
+    <h1>Java Reference</h1>
+    <p class="lesson-intro">A quick lookup for Java keywords, String methods, Math methods, and access modifiers. Search the table below to filter.</p>
+
+    <input type="text" id="ref-filter" class="ref-filter" placeholder="🔍  Filter by keyword, description, or example..."/>
+
+    <!-- KEYWORDS -->
+    <h2 id="keywords">Java Keywords</h2>
+    <table class="lesson-table">
+      <thead><tr><th>Keyword</th><th>Category</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td><code>class</code></td><td><span class="ref-tag">OOP</span></td><td>Declares a class</td></tr>
+        <tr><td><code>interface</code></td><td><span class="ref-tag">OOP</span></td><td>Declares an interface</td></tr>
+        <tr><td><code>extends</code></td><td><span class="ref-tag">OOP</span></td><td>Inherits from a class</td></tr>
+        <tr><td><code>implements</code></td><td><span class="ref-tag">OOP</span></td><td>Implements an interface</td></tr>
+        <tr><td><code>new</code></td><td><span class="ref-tag">OOP</span></td><td>Creates a new object</td></tr>
+        <tr><td><code>this</code></td><td><span class="ref-tag">OOP</span></td><td>Refers to the current object</td></tr>
+        <tr><td><code>super</code></td><td><span class="ref-tag">OOP</span></td><td>Refers to the parent class</td></tr>
+        <tr><td><code>static</code></td><td><span class="ref-tag">Modifier</span></td><td>Belongs to the class, not instances</td></tr>
+        <tr><td><code>final</code></td><td><span class="ref-tag">Modifier</span></td><td>Cannot be changed / overridden</td></tr>
+        <tr><td><code>abstract</code></td><td><span class="ref-tag">Modifier</span></td><td>Class/method must be subclassed/overridden</td></tr>
+        <tr><td><code>void</code></td><td><span class="ref-tag">Type</span></td><td>Method returns nothing</td></tr>
+        <tr><td><code>return</code></td><td><span class="ref-tag">Control</span></td><td>Exits a method and returns a value</td></tr>
+        <tr><td><code>if</code></td><td><span class="ref-tag">Control</span></td><td>Conditional branch</td></tr>
+        <tr><td><code>else</code></td><td><span class="ref-tag">Control</span></td><td>Alternative branch</td></tr>
+        <tr><td><code>switch</code></td><td><span class="ref-tag">Control</span></td><td>Multi-way branch</td></tr>
+        <tr><td><code>case</code></td><td><span class="ref-tag">Control</span></td><td>A branch in switch</td></tr>
+        <tr><td><code>break</code></td><td><span class="ref-tag">Control</span></td><td>Exits a loop or switch</td></tr>
+        <tr><td><code>continue</code></td><td><span class="ref-tag">Control</span></td><td>Skips current loop iteration</td></tr>
+        <tr><td><code>for</code></td><td><span class="ref-tag">Loop</span></td><td>Count-controlled loop</td></tr>
+        <tr><td><code>while</code></td><td><span class="ref-tag">Loop</span></td><td>Condition-controlled loop</td></tr>
+        <tr><td><code>do</code></td><td><span class="ref-tag">Loop</span></td><td>do-while loop body</td></tr>
+        <tr><td><code>try</code></td><td><span class="ref-tag">Exception</span></td><td>Wraps code that may throw</td></tr>
+        <tr><td><code>catch</code></td><td><span class="ref-tag">Exception</span></td><td>Handles a thrown exception</td></tr>
+        <tr><td><code>finally</code></td><td><span class="ref-tag">Exception</span></td><td>Always runs after try/catch</td></tr>
+        <tr><td><code>throw</code></td><td><span class="ref-tag">Exception</span></td><td>Manually throws an exception</td></tr>
+        <tr><td><code>throws</code></td><td><span class="ref-tag">Exception</span></td><td>Declares exceptions a method may throw</td></tr>
+        <tr><td><code>import</code></td><td><span class="ref-tag">Package</span></td><td>Imports a class or package</td></tr>
+        <tr><td><code>package</code></td><td><span class="ref-tag">Package</span></td><td>Declares a package</td></tr>
+        <tr><td><code>null</code></td><td><span class="ref-tag">Literal</span></td><td>Reference to no object</td></tr>
+        <tr><td><code>true</code> / <code>false</code></td><td><span class="ref-tag">Literal</span></td><td>Boolean literals</td></tr>
+      </tbody>
+    </table>
+
+    <!-- STRING METHODS -->
+    <h2 id="string-methods">String Methods</h2>
+    <table class="lesson-table">
+      <thead><tr><th>Method</th><th>Returns</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td><code>.length()</code></td><td>int</td><td>Number of characters</td></tr>
+        <tr><td><code>.charAt(i)</code></td><td>char</td><td>Character at index i</td></tr>
+        <tr><td><code>.indexOf(s)</code></td><td>int</td><td>First index of substring s (-1 if not found)</td></tr>
+        <tr><td><code>.substring(i)</code></td><td>String</td><td>Substring from index i to end</td></tr>
+        <tr><td><code>.substring(i, j)</code></td><td>String</td><td>Substring from i (inclusive) to j (exclusive)</td></tr>
+        <tr><td><code>.toUpperCase()</code></td><td>String</td><td>All characters uppercase</td></tr>
+        <tr><td><code>.toLowerCase()</code></td><td>String</td><td>All characters lowercase</td></tr>
+        <tr><td><code>.trim()</code></td><td>String</td><td>Removes leading/trailing whitespace</td></tr>
+        <tr><td><code>.replace(a, b)</code></td><td>String</td><td>Replaces all occurrences of a with b</td></tr>
+        <tr><td><code>.contains(s)</code></td><td>boolean</td><td>true if string contains s</td></tr>
+        <tr><td><code>.startsWith(s)</code></td><td>boolean</td><td>true if string starts with s</td></tr>
+        <tr><td><code>.endsWith(s)</code></td><td>boolean</td><td>true if string ends with s</td></tr>
+        <tr><td><code>.equals(s)</code></td><td>boolean</td><td>true if content matches (case-sensitive)</td></tr>
+        <tr><td><code>.equalsIgnoreCase(s)</code></td><td>boolean</td><td>true if content matches (case-insensitive)</td></tr>
+        <tr><td><code>.split(regex)</code></td><td>String[]</td><td>Splits string into array by delimiter</td></tr>
+        <tr><td><code>.toCharArray()</code></td><td>char[]</td><td>Converts to char array</td></tr>
+        <tr><td><code>.isEmpty()</code></td><td>boolean</td><td>true if length() == 0</td></tr>
+        <tr><td><code>.isBlank()</code></td><td>boolean</td><td>true if empty or only whitespace (Java 11+)</td></tr>
+      </tbody>
+    </table>
+
+    <!-- MATH -->
+    <h2 id="math">Math Methods</h2>
+    <table class="lesson-table">
+      <thead><tr><th>Method</th><th>Description</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td><code>Math.abs(x)</code></td><td>Absolute value</td><td><code>Math.abs(-5) → 5</code></td></tr>
+        <tr><td><code>Math.max(a, b)</code></td><td>Larger of two values</td><td><code>Math.max(3, 7) → 7</code></td></tr>
+        <tr><td><code>Math.min(a, b)</code></td><td>Smaller of two values</td><td><code>Math.min(3, 7) → 3</code></td></tr>
+        <tr><td><code>Math.pow(x, n)</code></td><td>x to the power of n</td><td><code>Math.pow(2, 8) → 256.0</code></td></tr>
+        <tr><td><code>Math.sqrt(x)</code></td><td>Square root</td><td><code>Math.sqrt(9) → 3.0</code></td></tr>
+        <tr><td><code>Math.round(x)</code></td><td>Rounds to nearest integer</td><td><code>Math.round(3.7) → 4</code></td></tr>
+        <tr><td><code>Math.floor(x)</code></td><td>Rounds down</td><td><code>Math.floor(3.9) → 3.0</code></td></tr>
+        <tr><td><code>Math.ceil(x)</code></td><td>Rounds up</td><td><code>Math.ceil(3.1) → 4.0</code></td></tr>
+        <tr><td><code>Math.random()</code></td><td>Random double [0.0, 1.0)</td><td><code>Math.random() → 0.73...</code></td></tr>
+        <tr><td><code>Math.PI</code></td><td>π constant</td><td><code>3.141592653589793</code></td></tr>
+      </tbody>
+    </table>
+
+    <!-- MODIFIERS -->
+    <h2 id="modifiers">Access Modifiers</h2>
+    <table class="lesson-table">
+      <thead><tr><th>Modifier</th><th>Same Class</th><th>Same Package</th><th>Subclass</th><th>Everywhere</th></tr></thead>
+      <tbody>
+        <tr><td><code>public</code></td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
+        <tr><td><code>protected</code></td><td>✅</td><td>✅</td><td>✅</td><td>❌</td></tr>
+        <tr><td><em>(default)</em></td><td>✅</td><td>✅</td><td>❌</td><td>❌</td></tr>
+        <tr><td><code>private</code></td><td>✅</td><td>❌</td><td>❌</td><td>❌</td></tr>
+      </tbody>
+    </table>
+
+    <div class="lesson-nav">
+      <a href="exercises.html" class="lesson-nav-btn">← Exercises</a>
+      <a href="01-introduction.html" class="lesson-nav-btn">Back to Lesson 1 →</a>
+    </div>
+  </main>
+</div>
+<footer class="footer"><div class="footer-inner"><div class="footer-brand"><span class="logo-icon">☕</span><span class="logo-text">JavaLearn</span></div><p class="footer-copy">© 2026 JavaLearn.</p></div></footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

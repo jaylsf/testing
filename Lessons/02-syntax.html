@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Java Syntax & Basics – JavaLearn</title>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="topnav">
+  <a href="../index.html" class="topnav-brand" style="text-decoration:none">
+    <span class="logo-icon">☕</span><span class="logo-text">JavaLearn</span>
+  </a>
+  <nav class="topnav-links">
+    <a href="../index.html">Home</a>
+    <a href="01-introduction.html">Tutorial</a>
+    <a href="exercises.html">Exercises</a>
+    <a href="reference.html">Reference</a>
+  </nav>
+  <div class="topnav-right"><a href="03-control-flow.html" class="btn-start">Next Lesson →</a></div>
+</header>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Getting Started</div>
+      <a href="01-introduction.html">Introduction</a>
+      <a href="02-syntax.html" class="active">Syntax &amp; Basics</a>
+      <a href="03-control-flow.html">Control Flow</a>
+      <a href="04-methods.html">Methods</a>
+      <a href="05-oop.html">OOP</a>
+      <a href="06-arrays.html">Arrays &amp; Collections</a>
+      <a href="07-strings.html">Strings</a>
+      <a href="08-exceptions.html">Exceptions</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Practice</div>
+      <a href="exercises.html">Exercises</a>
+      <a href="reference.html">Reference</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <h1>Java Syntax &amp; Basics</h1>
+    <p class="lesson-intro">Before writing real programs, you need to understand the building blocks: variables, data types, operators, and how Java's syntax is structured.</p>
+
+    <h2>Variables</h2>
+    <p>A variable stores a value. In Java you must declare its type before using it.</p>
+
+    <div class="code-block">
+      <div class="code-block-header"><span class="code-block-label">Variables.java</span><button class="code-copy-btn">Copy</button></div>
+      <pre><span class="kw">public class</span> <span class="cls">Variables</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+        <span class="kw">int</span> age = <span class="num">25</span>;
+        <span class="kw">double</span> price = <span class="num">9.99</span>;
+        <span class="kw">char</span> grade = <span class="str">'A'</span>;
+        <span class="kw">boolean</span> isJavaFun = <span class="bool">true</span>;
+        String name = <span class="str">"Alice"</span>;
+
+        System.out.println(name + <span class="str">" is "</span> + age + <span class="str">" years old"</span>);
+    }
+}</pre>
+      <div class="output-line">▶ Output: Alice is 25 years old</div>
+    </div>
+
+    <h2>Primitive Data Types</h2>
+    <p>Java has 8 primitive types that hold simple values directly in memory:</p>
+    <table class="lesson-table">
+      <thead><tr><th>Type</th><th>Size</th><th>Example</th><th>Range / Notes</th></tr></thead>
+      <tbody>
+        <tr><td><code>byte</code></td><td>1 byte</td><td><code>byte b = 100;</code></td><td>-128 to 127</td></tr>
+        <tr><td><code>short</code></td><td>2 bytes</td><td><code>short s = 5000;</code></td><td>-32,768 to 32,767</td></tr>
+        <tr><td><code>int</code></td><td>4 bytes</td><td><code>int i = 42;</code></td><td>~±2.1 billion</td></tr>
+        <tr><td><code>long</code></td><td>8 bytes</td><td><code>long l = 99L;</code></td><td>Very large integers</td></tr>
+        <tr><td><code>float</code></td><td>4 bytes</td><td><code>float f = 3.14f;</code></td><td>6–7 decimal digits</td></tr>
+        <tr><td><code>double</code></td><td>8 bytes</td><td><code>double d = 3.14;</code></td><td>15 decimal digits</td></tr>
+        <tr><td><code>boolean</code></td><td>1 bit</td><td><code>boolean ok = true;</code></td><td>true or false</td></tr>
+        <tr><td><code>char</code></td><td>2 bytes</td><td><code>char c = 'J';</code></td><td>Single character</td></tr>
+      </tbody>
+    </table>
+
+    <div class="tip-box"><strong>✅ Tip:</strong> Use <code>int</code> for whole numbers and <code>double</code> for decimals in most cases. Use <code>long</code> when the value might exceed ~2 billion.</div>
+
+    <h2>Type Casting</h2>
+    <p>Converting between types can be <em>widening</em> (automatic) or <em>narrowing</em> (manual).</p>
+    <div class="code-block">
+      <div class="code-block-header"><span class="code-block-label">Casting.java</span><button class="code-copy-btn">Copy</button></div>
+      <pre><span class="kw">int</span> x = <span class="num">9</span>;
+<span class="kw">double</span> d = x;            <span class="cm">// widening – automatic</span>
+<span class="kw">int</span> y = (<span class="kw">int</span>) <span class="num">9.99</span>;     <span class="cm">// narrowing – manual, loses .99</span>
+System.out.println(d);   <span class="cm">// 9.0</span>
+System.out.println(y);   <span class="cm">// 9</span></pre>
+    </div>
+
+    <h2>Operators</h2>
+    <h3>Arithmetic Operators</h3>
+    <div class="code-block">
+      <div class="code-block-header"><span class="code-block-label">Operators.java</span><button class="code-copy-btn">Copy</button></div>
+      <pre><span class="kw">int</span> a = <span class="num">10</span>, b = <span class="num">3</span>;
+System.out.println(a + b);  <span class="cm">// 13  – addition</span>
+System.out.println(a - b);  <span class="cm">// 7   – subtraction</span>
+System.out.println(a * b);  <span class="cm">// 30  – multiplication</span>
+System.out.println(a / b);  <span class="cm">// 3   – integer division</span>
+System.out.println(a % b);  <span class="cm">// 1   – modulus (remainder)</span></pre>
+    </div>
+
+    <h3>Comparison &amp; Logical Operators</h3>
+    <table class="lesson-table">
+      <thead><tr><th>Operator</th><th>Meaning</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td><code>==</code></td><td>Equal to</td><td><code>a == b → false</code></td></tr>
+        <tr><td><code>!=</code></td><td>Not equal</td><td><code>a != b → true</code></td></tr>
+        <tr><td><code>&gt;</code> / <code>&lt;</code></td><td>Greater / Less than</td><td><code>a > b → true</code></td></tr>
+        <tr><td><code>&amp;&amp;</code></td><td>Logical AND</td><td><code>true &amp;&amp; false → false</code></td></tr>
+        <tr><td><code>||</code></td><td>Logical OR</td><td><code>true || false → true</code></td></tr>
+        <tr><td><code>!</code></td><td>Logical NOT</td><td><code>!true → false</code></td></tr>
+      </tbody>
+    </table>
+
+    <h2>Constants (final)</h2>
+    <p>Use the <code>final</code> keyword to declare a constant — a value that cannot change:</p>
+    <div class="code-block">
+      <div class="code-block-header"><span class="code-block-label">Constants.java</span><button class="code-copy-btn">Copy</button></div>
+      <pre><span class="kw">final double</span> PI = <span class="num">3.14159</span>;
+<span class="kw">final int</span> MAX_SPEED = <span class="num">120</span>;
+System.out.println(<span class="str">"Pi = "</span> + PI);</pre>
+      <div class="output-line">▶ Output: Pi = 3.14159</div>
+    </div>
+
+    <div class="warn-box"><strong>⚠️ Convention:</strong> Constants are named in UPPER_SNAKE_CASE by Java convention.</div>
+
+    <div class="lesson-nav">
+      <a href="01-introduction.html" class="lesson-nav-btn">← Introduction</a>
+      <a href="03-control-flow.html" class="lesson-nav-btn">Control Flow →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand"><span class="logo-icon">☕</span><span class="logo-text">JavaLearn</span></div>
+    <p class="footer-copy">© 2026 JavaLearn. Built for learners everywhere.</p>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>
